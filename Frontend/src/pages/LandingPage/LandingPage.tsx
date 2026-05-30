@@ -16,7 +16,6 @@ import { kitchenScene } from './Kitchen.js'
 // import Testimonials from './Testimonials.js'
 
 const FRAMES_PER_FOLDER = 240
-const SCROLL_DEPTH = 2.35
 const FRAME_WIDTH = 3.2
 const FRAME_HEIGHT = 1.8
 const FRAME_OVERSCAN = 1.06
@@ -209,6 +208,8 @@ function ImmersiveCanvas({
     const resize = () => {
       const width = window.innerWidth
       const height = window.innerHeight
+      const responsiveOverscan =
+        width < 540 ? 1.01 : width < 960 ? 1.03 : FRAME_OVERSCAN
       camera.aspect = width / height
       camera.updateProjectionMatrix()
       renderer.setSize(width, height, false)
@@ -219,7 +220,7 @@ function ImmersiveCanvas({
       const viewportWidth = viewportHeight * camera.aspect
       const coverScale =
         Math.max(viewportWidth / FRAME_WIDTH, viewportHeight / FRAME_HEIGHT) *
-        FRAME_OVERSCAN
+        responsiveOverscan
 
       plane.scale.set(coverScale, coverScale, 1)
       renderer.render(scene, camera)
@@ -372,7 +373,6 @@ function LandingPage() {
             className="scroll-scene"
             id={scene.id}
             key={scene.id}
-            style={{ minHeight: `${SCROLL_DEPTH * 100}svh` }}
           >
             <div className="scene-copy">
               <p>{scene.eyebrow}</p>

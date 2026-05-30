@@ -214,6 +214,7 @@
   display: flex;
   align-items: center;
   width: min(1180px, calc(100% - 40px));
+  min-height: 235svh;
   margin: 0 auto;
 }
 
@@ -283,6 +284,11 @@
   backdrop-filter: blur(16px);
   font-size: clamp(17px, 2vw, 22px);
   line-height: 1.55;
+}
+
+.scene-copy h1,
+.scene-copy span {
+  max-width: 100%;
 }
 
 .stage-card {
@@ -1404,8 +1410,116 @@
   box-shadow: 0 18px 40px rgba(243, 199, 122, 0.24);
 }
 
+@media (max-width: 1200px) {
+  .site-nav {
+    width: min(100% - 24px, 1120px);
+    gap: 16px;
+  }
+
+  .scroll-scene {
+    width: min(100% - 24px, 1120px);
+    min-height: 210svh;
+  }
+
+  .scene-copy {
+    width: min(560px, 100%);
+  }
+
+  .scene-copy h1 {
+    font-size: clamp(42px, 6.3vw, 92px);
+  }
+
+  .about-hero,
+  .start-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+  }
+
+  .about-page,
+  .start-project-page,
+  .testimonials-section {
+    padding-left: max(24px, calc((100vw - 1120px) / 2));
+    padding-right: max(24px, calc((100vw - 1120px) / 2));
+  }
+}
+
+@media (max-width: 1024px) {
+  .site-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 12px;
+  }
+
+  .site-nav nav {
+    order: 3;
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding: 4px 2px 6px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .site-nav nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .site-nav nav a {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  .nav-action {
+    margin-left: auto;
+  }
+
+  .landing {
+    overflow-x: hidden;
+  }
+
+  .scroll-scene {
+    min-height: 190svh;
+  }
+
+  .site-footer {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .service-grid,
+  .portfolio-grid,
+  .pricing-grid,
+  .leadership-grid,
+  .testimonial-strip,
+  .about-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-hero,
+  .start-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .start-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero-card,
+  .start-panel {
+    min-height: auto;
+  }
+}
+
 @media (max-width: 960px) {
-  .start-hero,
+  .scroll-scene {
+    min-height: 180svh;
+  }
+
+  .start-hero {
+    grid-template-columns: 1fr;
+  }
+
   .service-grid,
   .portfolio-grid,
   .pricing-grid,
@@ -1415,20 +1529,32 @@
     grid-template-columns: 1fr;
   }
 
-  .start-form-grid {
+  .about-hero-actions,
+  .hero-mini-stats {
     grid-template-columns: 1fr;
+  }
+
+  .about-hero-actions {
+    display: grid;
+  }
+
+  .hero-mini-stats {
+    gap: 12px;
+  }
+
+  .footer-stats span {
+    flex: 1 1 140px;
   }
 }
 
 @media (max-width: 760px) {
   .site-nav {
     top: 12px;
-    grid-template-columns: 1fr auto;
     width: min(100% - 24px, 680px);
   }
 
-  .site-nav nav {
-    display: none;
+  .brand {
+    min-width: 0;
   }
 
   .nav-action {
@@ -1441,10 +1567,15 @@
     font-size: 12px;
   }
 
+  .site-nav nav a {
+    padding: 9px 12px;
+  }
+
   .scroll-scene {
     width: min(100% - 28px, 680px);
     align-items: flex-end;
-    padding-bottom: 96px;
+    min-height: 165svh;
+    padding-bottom: 72px;
   }
 
   .scene-copy {
@@ -1471,7 +1602,7 @@
     bottom: 24px;
     left: 14px;
     width: auto;
-    max-height: 36svh;
+    max-height: 34svh;
     padding: 18px;
     overflow: auto;
     transform: none;
@@ -1546,7 +1677,143 @@
     grid-template-columns: 1fr;
   }
 
+  .hero-mini-stats {
+    display: grid;
+  }
+
   .pricing-card.featured {
     transform: none;
+  }
+}
+
+@media (max-width: 540px) {
+  .site-nav {
+    width: calc(100% - 16px);
+    padding: 8px;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-copy strong {
+    font-size: 14px;
+  }
+
+  .brand-copy small {
+    font-size: 10px;
+  }
+
+  .site-nav nav {
+    gap: 2px;
+  }
+
+  .site-nav nav a {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  .nav-action,
+  .nav-secondary {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .scene-copy {
+    padding-left: 16px;
+  }
+
+  .scroll-scene {
+    min-height: 150svh;
+  }
+
+  .scene-copy h1 {
+    font-size: clamp(34px, 13vw, 54px);
+  }
+
+  .scene-copy span {
+    font-size: 15px;
+  }
+
+  .stage-card {
+    padding: 16px;
+  }
+
+  .stage-card h2 {
+    font-size: 21px;
+  }
+
+  .site-footer h2,
+  .about-hero h1,
+  .start-copy h1,
+  .testimonials-header h2 {
+    font-size: clamp(28px, 10vw, 44px);
+  }
+
+  .footer-contact p,
+  .about-hero-copy span,
+  .start-copy span,
+  .section-heading span,
+  .testimonials-header span {
+    font-size: 15px;
+  }
+
+  .footer-contact-box {
+    gap: 8px;
+  }
+
+  .footer-btn,
+  .footer-social a,
+  .about-hero-actions a,
+  .start-form-card button {
+    width: 100%;
+  }
+
+  .footer-social {
+    flex-direction: column;
+  }
+
+  .about-hero-copy,
+  .about-hero-card,
+  .start-copy,
+  .start-panel,
+  .start-form-card,
+  .glass-card,
+  .pricing-card,
+  .portfolio-card,
+  .testimonial-pill,
+  .metric-card {
+    padding: 20px;
+  }
+
+  .card-image,
+  .pricing-visual,
+  .leadership-avatar,
+  .testimonial-avatar {
+    margin: -20px -20px 16px;
+  }
+
+  .hero-image {
+    min-height: 180px;
+  }
+
+  .card-image,
+  .pricing-visual,
+  .leadership-avatar,
+  .testimonial-avatar {
+    height: 170px;
+  }
+
+  .portfolio-frame img {
+    min-height: 150px;
+  }
+
+  .portfolio-frame {
+    min-height: 150px;
+  }
+
+  .start-form-grid {
+    gap: 12px;
   }
 }
